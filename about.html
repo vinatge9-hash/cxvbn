@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Niyantri Cafe | About</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{ --bg:#f7f1ea; --text:#2b2b2b; }
+    html{ scroll-behavior:smooth; }
+    body{ margin:0; font-family: Inter, system-ui; background:#fff; color:var(--text); }
+    header{ position:sticky; top:0; z-index:50; backdrop-filter: saturate(1.2) blur(6px); background: rgba(255,255,255,.95); border-bottom:1px solid rgba(0,0,0,.08); }
+    .nav{ max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:12px 20px; }
+    .brand{ display:flex; align-items:center; gap:8px; text-decoration:none; color:#1b1b1b; }
+    .container{ max-width:1100px; margin:0 auto; padding:20px; }
+    .section-title{ font-family: Merriweather, serif; font-size:2rem; margin:8px 0 4px; }
+    .grid{ display:grid; grid-template-columns:1.2fr 1fr; gap:16px; align-items: start; }
+    .card{ background:#fff; border-radius:14px; padding:16px; border:1px solid #f0e6dc; box-shadow:0 6px 18px rgba(0,0,0,.04); }
+    .section{ padding:40px 0; }
+    @media (max-width: 900px){ .grid{ grid-template-columns:1fr; } }
+  </style>
+</head>
+<body class="opacity-0">
+  <header>
+    <div class="nav" aria-label="Main Navigation">
+      <a href="index.html" class="brand" aria-label="Niyantri Cafe home">
+        <span class="logo" aria-hidden="true"> 
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8h11a4 4 0 0 1 4 4v3"/>
+            <path d="M3 8h11v-4"/>
+          </svg>
+        </span>
+        <span>Niyantri Cafe</span>
+      </a>
+      <nav aria-label="Site">
+        <ul style="display:flex; gap:14px; list-style:none; padding:0; margin:0; align-items:center;">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="container" style="padding-top:20px;">
+    <section class="section" aria-label="Our Story">
+      <div class="section-title">Our Story</div>
+      <p style="color:#5b5b5b; max-width:800px;">Niyantri Cafe began as a small, neighborhood coffee spot in Hyderabad. We source ethical beans, roast with care, and craft beverages to honor classic techniques while embracing modern tastes. Our space is designed to feel like a home away from home—a place to linger with friends, study, or simply savor a quiet moment with a great cup.</p>
+    </section>
+    <section class="section" aria-label="Our Values">
+      <div class="grid">
+        <div class="card">
+          <strong>Quality Beans</strong>
+          <p style="color:#5b5b5b;">Direct-sourced beans from trusted farms and local roasters.
+          </p>
+        </div>
+        <div class="card">
+          <strong>Crafted In Hyderabad</strong>
+          <p style="color:#5b5b5b;">A cafe built with the local spirit in mind.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="container" style="padding:40px 20px; text-align:center; color:#6b6b6b; border-top:1px solid #eee;">
+    <div>© <span id="year"></span> Niyantri Cafe, Hyderabad, India</div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    window.addEventListener('load', ()=>{ document.body.classList.remove('opacity-0'); });
+  </script>
+</body>
+</html>
