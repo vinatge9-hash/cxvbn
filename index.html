@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Niyantri Cafe | Home</title>
+  <meta name="description" content="Niyantri Cafe – premium coffee shop in Hyderabad offering handcrafted drinks, pastries, and cozy spaces. Order online or visit us." />
+  <meta property="og:title" content="Niyantri Cafe" />
+  <meta property="og:description" content="Premium coffee shop in Hyderabad with handcrafted drinks and pastries." />
+  <meta property="og:type" content="website" />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg: #0f0a05;
+      --cream: #f5efe4;
+      --brown: #6b4b3a;
+      --brown-dark:#4a3227;
+      --accent: #c88a3c;
+      --shadow: 0 8px 24px rgba(0,0,0,.25);
+      --radius: 14px;
+    }
+    html{ scroll-behavior: smooth; }
+    *{ box-sizing: border-box; }
+    body{ margin:0; font-family: Inter, system-ui, -apple-system, Arial; color:#1f1f1f; background: #fff; }
+    /* Premium load animation */
+    body.opacity-0{ opacity:0; }
+    body{ background: #f7f1ea; }
+    header{ position: sticky; top:0; z-index: 50; backdrop-filter: saturate(1.2) blur(6px); background: rgba(255,255,255,.92); border-bottom:1px solid rgba(0,0,0,.08); }
+    .nav{ max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:14px 20px; }
+    .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; color: #2b2b2b; }
+    .brand .logo{ width:28px; height:28px; display:inline-block; }
+    .brand span{ font-family: Merriweather, serif; font-weight:700; font-size:1.25rem; }
+    nav ul{ list-style:none; display:flex; gap:18px; padding:0; margin:0; align-items:center; }
+    nav a{ text-decoration:none; color:#333; padding:8px 10px; border-radius:8px; font-weight:600; font-size:0.95rem; transition: all .25s ease; }
+    nav a:hover{ background: #f0e6dc; color:#2b2b2b; transform: translateY(-1px); }
+    .cart-icon{ position: relative; display:inline-flex; align-items:center; gap:6px; }
+    .badge{ position:absolute; top:-6px; right:-6px; background:#e11d48; color:white; border-radius:999px; padding:2px 6px; font-size:11px; }
+    .hero{ position:relative; overflow:hidden; min-height: calc(100vh - 70px); display:flex; align-items: center; justify-content:center; text-align:center; padding:8rem 1rem; }
+    .hero-inner{ max-width: 1100px; width:100%; padding:0 1rem; }
+    .hero h1{ font-family: Merriweather, serif; font-size: clamp(2.6rem, 5vw, 4rem); line-height:1.04; margin:0 0 .75rem; color:#2b1e12; }
+    .hero p{ font-size: 1.15rem; color:#3b2a1a; margin-bottom:1.25rem; }
+    .cta{ display:inline-flex; align-items:center; gap:12px; padding:12px 22px; border-radius:999px; border:0; cursor:pointer; font-weight:700; color:white; background: linear-gradient(135deg, #7c4a2f 0%, #b36b2e 60%, #d08a4a 100%); box-shadow: 0 6px 20px rgba(180,110,50,.4); }
+    .cta.secondary{ background: #fff; color:#5b3a1a; border:1px solid #e2d0b0; }
+    .grid{ display:grid; gap:20px; }
+    .card{ background: #fff; border-radius: 16px; padding:18px; box-shadow: var(--shadow); border:1px solid #efe6d9; }
+    .footer{ padding:40px 20px; text-align:center; color:#6b6b6b; background:#fff3e0; }
+    /* Sections */
+    section{ padding:72px 0; }
+    .section-title{ font-family: Merriweather, serif; font-size: 2rem; margin:0 0 12px; }
+    .section-sub{ color:#5b5b5b; margin-bottom:20px; }
+    /* Menu grid cards */
+    .menu-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:18px; }
+    .menu-item{ display:flex; flex-direction:column; gap:12px; padding:14px; border-radius:14px; background: #fff; box-shadow: 0 6px 18px rgba(0,0,0,.06); border:1px solid #f0e6dc; }
+    .menu-thumb{ height:140px; border-radius:12px; background: linear-gradient(135deg, #f8efe2, #d8b49e); display:flex; align-items:center; justify-content:center; }
+    .menu-title{ display:flex; align-items:center; justify-content:space-between; gap:8px; }
+    .price{ font-weight:700; color:#4b2e1a; }
+    .icon{ width:1.25rem; height:1.25rem; fill: currentColor; }
+    .icon-btn{ display:inline-flex; align-items:center; gap:8px; padding:10px 12px; border-radius:10px; border:1px solid #e6d9c3; background:#fff; cursor:pointer; font-weight:600; color:#3b2e1a; }
+    .icon-btn:hover{ transform: translateY(-1px); box-shadow: 0 6px 14px rgba(0,0,0,.08); }
+    /* Interactive animations support */
+    .animate-on-scroll{ opacity:0; transform: translateY(20px); transition: all 0.6s ease-out; }
+    .animate-on-scroll.visible{ opacity:1; transform: translateY(0); }
+    /* PayPal area */
+    #paypal-button-container{ margin-top:12px; }
+    /* Form */
+    input, textarea{ width:100%; padding:12px 14px; border-radius:8px; border:1px solid #e2d0b0; font:inherit; }
+    input:focus, textarea:focus{ outline:2px solid #e2d0b0; outline-offset:0; }
+    @media (max-width: 768px){ .hero{ padding: 4rem 1rem; } }
+  </style>
+</head>
+<body class="opacity-0">
+  <header>
+    <div class="nav" aria-label="Main Navigation">
+      <a href="index.html" class="brand" aria-label="Niyantri Cafe home">
+        <span class="logo" aria-hidden="true">
+          <!-- Coffee cup icon -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" style="color:#7a4b2a;">
+            <path d="M3 14h14a4 4 0 0 0 4-4V5"/>
+            <path d="M3 5h11a4 4 0 0 1 4 4v7"/>
+            <path d="M3 14h4"/>
+          </svg>
+        </span>
+        <span>Niyantri Cafe</span>
+      </a>
+      <nav aria-label="Site">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="cart.html" class="cart-link">Cart</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero" aria-label="Hero">
+      <div class="hero-inner">
+        <div class="animate-on-scroll" style="opacity:1; transform: translateY(0);">
+          <h1>Niyantri Cafe</h1>
+          <p>Handcrafted coffee, warm pastries, and a welcoming space in Hyderabad. Sip, study, and stay awhile.</p>
+          <button class="cta" onclick="location.href='menu.html'" aria-label="View Menu">Explore Menu</button>
+          <button class="cta secondary" style="margin-left:12px;" onclick="location.href='contact.html'" aria-label="Get in touch">Visit or Reserve</button>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Highlights" class="animate-on-scroll">
+      <div class="section-title" style="text-align:center;">Why Niyantri Cafe</div>
+      <p class="section-sub" style="text-align:center; max-width:800px; margin:0 auto;">A cozy corner in Hyderabad where coffee is crafted with care. Locally sourced beans, friendly staff, and a space that invites conversations.</p>
+      <div class="grid" style="max-width:1100px; margin:0 auto; padding:0 1rem;">
+        <div class="card" style="display:flex; gap:16px; align-items:center;">
+          <span class="icon" aria-label="cup icon" style="width:40px;height:40px;color:#7a4b2a;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 8h13a4 4 0 0 1 4 4v3"/>
+              <path d="M3 8h13v-4"/>
+            </svg>
+          </span>
+          <div>
+            <strong>Cozy Atmosphere</strong>
+            <div style="color:#5b5b5b; font-size:.95rem;">Free Wi-Fi, power outlets, and quiet corners for study or meetings.</div>
+          </div>
+        </div>
+        <div class="card" style="display:flex; gap:16px; align-items:center;">
+          <span class="icon" aria-label="bean" style="width:40px;height:40px;color:#7a4b2a;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 12c0-3 3-4 8-4s7 1 7 4-3 4-7 4-8-1-8-4Z"/>
+            </svg>
+          </span>
+          <div>
+            <strong>Fresh Beans</strong>
+            <div style="color:#5b5b5b; font-size:.95rem;">Direct-sourced beans from local roasters and farms.</div>
+          </div>
+        </div>
+        <div class="card" style="display:flex; gap:16px; align-items:center;">
+          <span class="icon" aria-label="leaf" style="width:40px;height:40px;color:#7a4b2a;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3c-4 4-8 8-8 12 0 4 4 8 8 8s8-4 8-8c0-8-8-8-8-12Z"/>
+            </svg>
+          </span>
+          <div>
+            <strong>Local Flavor</strong>
+            <div style="color:#5b5b5b; font-size:.95rem;">Inspired by Hyderabad's rich culture and flavors.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer" aria-label="Footer">
+    <div>© <span id="year"></span> Niyantri Cafe, Hyderabad, India</div>
+  </footer>
+  <script>
+    // init year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Intersection observer for on-scroll animations
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach((entry)=>{
+        if(entry.isIntersecting){ entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      });
+    },{threshold:0.1});
+    animatedElements.forEach(el=>{ el.classList.add('animate-on-scroll'); observer.observe(el); });
+  </script>
+  <script>
+    // Premium page load animation
+    window.addEventListener('load', ()=>{ document.body.classList.remove('opacity-0'); });
+  </script>
+</body>
+</html>
