@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Niyantri Cafe | Menu</title>
+  <meta name="description" content="Menu at Niyantri Cafe featuring espresso, latte, cappuccino, cold brew, pastries and more." />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{ --bg:#f7f1ea; --brown:#6b4b3a; --accent:#c88a3c; --shadow:0 8px 20px rgba(0,0,0,.08); }
+    html{ scroll-behavior:smooth; }
+    body{ margin:0; font-family: Inter, system-ui; background:#fff; color:#1f1f1f; }
+    header{ position:sticky; top:0; z-index:50; backdrop-filter: saturate(1.2) blur(6px); background: rgba(255,255,255,.95); border-bottom:1px solid rgba(0,0,0,.08); }
+    .nav{ max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:12px 20px; }
+    .brand{ display:flex; align-items:center; gap:8px; text-decoration:none; color:#2b2b2b; }
+    .brand .logo{ width:26px; height:26px; }
+    .cart{ position:relative; }
+    .badge{ position:absolute; top:-6px; right:-6px; background:#e11d48; color:white; border-radius:999px; padding:2px 6px; font-size:11px; }
+    .container{ max-width:1100px; margin:0 auto; padding:20px; }
+    .section-title{ font-family: Merriweather, serif; font-size:2rem; margin:16px 0; }
+    .grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap:18px; }
+    .menu-item{ background:#fff; border-radius:14px; padding:14px; border:1px solid #f0e6dc; box-shadow: var(--shadow); display:flex; flex-direction:column; gap:12px; }
+    .menu-thumb{ height:150px; border-radius:10px; background: linear-gradient(135deg, #f2e6d9, #d8b49e); display:flex; align-items:center; justify-content:center; }
+    .price{ font-weight:700; color:#4b2e1a; }
+    .btn{ padding:10px 12px; border-radius:8px; border:1px solid #e2d0b0; background:#fff; cursor:pointer; font-weight:600; }
+    .btn.primary{ background: linear-gradient(135deg, #7c4a2f, #b36b2e); color:#fff; border:0; }
+    .icon{ width:1rem; height:1rem; vertical-align: -0.1em; color:#7a4b2a; }
+    .animate-on-scroll{ opacity:0; transform: translateY(20px); transition: all 0.6s ease-out; }
+    .animate-on-scroll.visible{ opacity:1; transform: translateY(0); }
+    @media (max-width: 768px){ .grid{ grid-template-columns:1fr 1fr; } }
+    @media (max-width: 520px){ .grid{ grid-template-columns:1fr; } }
+  </style>
+</head>
+<body class="opacity-0">
+  <header>
+    <div class="nav" aria-label="Main Navigation">
+      <a href="index.html" class="brand" aria-label="Niyantri Cafe home">
+        <span class="logo" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8h11a4 4 0 0 1 4 4v3"/>
+            <path d="M3 8h11v-4"/>
+          </svg>
+        </span>
+        <span>Niyantri Cafe</span>
+      </a>
+      <nav aria-label="Site">
+        <ul style="display:flex; gap:14px; list-style:none; padding:0; margin:0; align-items:center;">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="cart.html" class="cart-link">Cart</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="container" style="padding-top:20px;">
+    <section aria-label="Menu Intro" class="animate-on-scroll">
+      <h2 class="section-title" style="margin-top:10px;">Our Menu</h2>
+      <p class="section-sub" style="color:#5b5b5b;">Classic coffees, artisan pastries, and daily specials. Add items to your cart and checkout with PayPal.</p>
+    </section>
+    <section aria-label="Menu Grid" class="animate-on-scroll" style="margin-top:6px;">
+      <div class="grid" id="menu-grid">
+        <!-- Menu items will be injected by JS or can be statically listed for initial load -->
+        <div class="menu-item">
+          <div class="menu-thumb"><span>Espresso</span></div>
+          <div class="menu-title" style="justify-content:space-between; align-items:center;">
+            <strong>Espresso</strong>
+            <span class="price">$3.50</span>
+          </div>
+          <div style="color:#5b5b5b; font-size:.95rem;">Rich & smooth single shot</div>
+          <button class="btn primary" onclick="addToCart('Espresso',3.5)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+          <div class="menu-thumb"><span>Latte</span></div>
+          <div class="menu-title" style="justify-content:space-between; align-items:center;">
+            <strong>Latte</strong>
+            <span class="price">$4.50</span>
+          </div>
+          <div style="color:#5b5b5b; font-size:.95rem;">Creamy milk with espresso</div>
+          <button class="btn primary" onclick="addToCart('Latte',4.5)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+          <div class="menu-thumb"><span>Cappuccino</span></div>
+          <div class="menu-title" style="justify-content:space-between; align-items:center;">
+            <strong>Cappuccino</strong>
+            <span class="price">$4.50</span>
+          </div>
+          <div style="color:#5b5b5b; font-size:.95rem;">Espresso, steamed milk, foam</div>
+          <button class="btn primary" onclick="addToCart('Cappuccino',4.5)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+          <div class="menu-thumb"><span>Americano</span></div>
+          <div class="menu-title" style="justify-content:space-between; align-items:center;">
+            <strong>Americano</strong>
+            <span class="price">$3.00</span>
+          </div>
+          <div style="color:#5b5b5b; font-size:.95rem;">Black coffee with hot water</div>
+          <button class="btn primary" onclick="addToCart('Americano',3)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+          <div class="menu-thumb"><span>Cold Brew</span></div>
+          <div class="menu-title" style="justify-content:space-between; align-items:center;">
+            <strong>Cold Brew</strong>
+            <span class="price">$4.00</span>
+          </div>
+          <div style="color:#5b5b5b; font-size:.95rem;">Smooth, 12-hour cold brew</div>
+          <button class="btn primary" onclick="addToCart('Cold Brew',4)">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+          <div class="menu-thumb"><span>Mocha</span></div>
+          <div class="menu-title" style="justify-content:space-between; align-items:center;">
+            <strong>Mocha</strong>
+            <span class="price">$4.75</span>
+          </div>
+          <div style="color:#5b5b5b; font-size:.95rem;">Espresso with chocolate and milk</div>
+          <button class="btn primary" onclick="addToCart('Mocha',4.75)">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+    <section class="animate-on-scroll" aria-label="Cart Summary" style="margin-top:28px;">
+      <div class="card" style="display:flex; gap:16px; align-items:center; justify-content:space-between;">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <span class="icon" aria-hidden="true" style="width:28px;height:28px; color:#7a4b2a;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 3h18v4H3z"/>
+              <path d="M6 7h4v14H6z"/>
+              <path d="M14 7h4v10h-4z"/>
+            </svg>
+          </span>
+          <strong>Cart Total</strong>
+        </div>
+        <div id="cart-total" style="font-weight:700; font-size:1.1rem;">$0.00</div>
+      </div>
+      <div id="paypal-button-container"></div>
+    </section>
+  </main>
+  <footer class="container" style="padding:40px 20px; text-align:center; color:#6b6b6b; border-top:1px solid #eee;">
+    <div>© <span id="year"></span> Niyantri Cafe, Hyderabad, India</div>
+  </footer>
+  <script>
+    function formatMoney(n){ return '$' + Number(n).toFixed(2); }
+    const cart = [];
+    function addToCart(name, price){
+      const idx = cart.findIndex(i => i.name === name);
+      if(idx>-1){ cart[idx].qty += 1; } else { cart.push({name, price, qty:1}); }
+      updateCartUI();
+    }
+    function updateCartUI(){
+      const total = cart.reduce((s,i)=> s + i.price * i.qty, 0);
+      document.getElementById('cart-total').textContent = formatMoney(total);
+      // update PayPal button render when items exist
+      renderPayPal(total);
+    }
+    // Basic PayPal integration (placeholder client-id)
+    function renderPayPal(total){
+      const container = document.getElementById('paypal-button-container');
+      container.innerHTML = '';
+      if(total <= 0){ return; }
+      const el = document.createElement('div');
+      el.id = 'paypal-button';
+      container.appendChild(el);
+      // Load PayPal SDK only once
+      if(!window.paypalLoaded){
+        const script = document.createElement('script');
+        script.src = 'https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD';
+        script.onload = () => {
+          window.paypalButtonsReady = true;
+          renderButtons();
+        };
+        document.head.appendChild(script);
+        window.paypalLoaded = true;
+      } else {
+        renderButtons();
+      }
+      function renderButtons(){
+        if(window.paypalButtonsReady){
+          // @ts-ignore
+          paypal.Buttons({
+            createOrder: (data, actions) => {
+              // simple order with total amount
+              return actions.order.create({ purchase_units: [{ amount: { value: total.toFixed(2) } }] });
+            },
+            onApprove: (data, actions) => {
+              return actions.order.capture().then(function(details){
+                alert('Payment completed by ' + details.payer.name.given_name);
+                // clear cart after successful payment
+                cart.length = 0; updateCartUI();
+                container.innerHTML = '<div style="color: #2e7d32; font-weight:700;">Payment successful. Thank you!</div>';
+              });
+            }
+          }).render('#paypal-button');
+        } else {
+          // retry once sdk loads
+          setTimeout(renderButtons, 200);
+        }
+      }
+    }
+    // year and scroll animations
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const obs = new IntersectionObserver((entries)=>{ entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); } }); }, {threshold:0.1});
+    document.querySelectorAll('.animate-on-scroll').forEach(el => { el.classList.add('animate-on-scroll'); obs.observe(el); });
+
+    // initial load animation
+    window.addEventListener('load', ()=>{ document.body.classList.remove('opacity-0'); setTimeout(updateCartUI, 100); });
+  </script>
+</body>
+</html>
