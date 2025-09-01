@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Niyantri Cafe | Contact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{ --bg:#f7f1ea; --text:#2b2b2b; }
+    html{ scroll-behavior:smooth; }
+    body{ margin:0; font-family: Inter, system-ui; background:#fff; color:var(--text); }
+    header{ position:sticky; top:0; z-index:50; backdrop-filter: saturate(1.2) blur(6px); background: rgba(255,255,255,.95); border-bottom:1px solid rgba(0,0,0,.08); }
+    .nav{ max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:12px 20px; }
+    .container{ max-width:1100px; margin:0 auto; padding:20px; }
+    .section-title{ font-family: Merriweather, serif; font-size:2rem; margin:8px 0; }
+    form{ display:flex; flex-direction:column; gap:12px; }
+    .row{ display:flex; gap:12px; align-items:center; }
+    .hint{ color:#5b5b5b; font-size:.9rem; }
+    .error{ color:#d32f2f; font-size:.9rem; }
+    .success{ color:#2e7d32; font-weight:700; }
+  </style>
+</head>
+<body class="opacity-0">
+  <header>
+    <div class="nav" aria-label="Main Navigation">
+      <a href="index.html" class="brand" aria-label="Niyantri Cafe home">
+        <span class="logo" aria-hidden="true"> 
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8h11a4 4 0 0 1 4 4v3"/>
+            <path d="M3 8h11v-4"/>
+          </svg>
+        </span>
+        <span>Niyantri Cafe</span>
+      </a>
+      <nav aria-label="Site">
+        <ul style="display:flex; gap:14px; list-style:none; padding:0; margin:0; align-items:center;">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="container" style="padding-top:20px;">
+    <section aria-label="Contact" class="animate-on-scroll" style="margin-top:6px;">
+      <h2 class="section-title">Get in touch</h2>
+      <p class="hint">Location: Hyderabad, India (placeholder address). We’d love to hear from you about reservations, events, or feedback.</p>
+      <form id="contact-form" novalidate>
+        <div class="row"><label for="name">Name</label><input id="name" name="name" type="text" required placeholder="Your name" /></div>
+        <div class="row"><label for="email">Email</label><input id="email" name="email" type="email" required placeholder="you@example.com" /></div>
+        <div class="row"><label for="message">Message</label><textarea id="message" name="message" rows="4" required placeholder="Your message"></textarea></div>
+        <button class="btn primary" type="submit" aria-label="Send message">Send Message</button>
+        <div id="form-status" class="hint"></div>
+      </form>
+    </section>
+  </main>
+  <footer class="container" style="padding:40px 20px; text-align:center; color:#6b6b6b; border-top:1px solid #eee;">
+    <div>© <span id="year"></span> Niyantri Cafe, Hyderabad, India</div>
+  </footer>
+  <script>
+    // form validation
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const msg = document.getElementById('message').value.trim();
+      if(!name || !email || !msg){ status.textContent = 'Please fill in all fields.'; status.className = 'hint'; return; }
+      // basic email pattern
+      const re = /^\S+@\S+\.\S+$/;
+      if(!re.test(email)){ status.textContent = 'Please enter a valid email.'; status.className = 'error'; return; }
+      status.textContent = 'Thanks! Your message has been sent (demo).'; status.className = 'success';
+      form.reset();
+    });
+    window.addEventListener('load', ()=>{ document.body.classList.remove('opacity-0'); document.getElementById('year').textContent = new Date().getFullYear(); });
+  </script>
+</body>
+</html>
